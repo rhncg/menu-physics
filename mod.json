@@ -1,0 +1,53 @@
+{
+    "geode": "5.7.1",
+    "gd": {
+        "win": "2.2081",
+        "android": "2.2081",
+        "mac": "2.2081",
+        "ios": "2.2081"
+    },
+    "id": "rcg21.menu-physics",
+    "name": "Menu Physics",
+    "version": "v1.0.0",
+    "developer": "RCG21",
+    "description": "menu buttons obey physics",
+    "dependencies": {
+        "geode.node-ids": ">=v1.23.3"
+    },
+	"tags": ["interface", "offline", "joke"],
+    "links": {"source": "https://github.com/rhncg/menu-physics"},
+    "settings": {
+        "enable-physics": {
+            "type": "bool",
+            "name": "Enable Physics",
+            "default": true
+        },
+        "physics-gravity": {
+            "type": "float",
+            "name": "Gravity Force",
+            "description": "Adjusts vertical pull down. Zero simulates space.",
+            "default": -30.0,
+            "min": -100.0,
+            "max": 0.0,
+            "control": { "slider": true }
+        },
+        "physics-friction": {
+            "type": "float",
+            "name": "Friction",
+            "description": "Higher values reduce sliding.",
+            "default": 0.4,
+            "min": 0.0,
+            "max": 1.0,
+            "control": { "slider": true }
+        },
+        "physics-bounciness": {
+            "type": "float",
+            "name": "Bounciness",
+            "description": "0 = No bounce, 1 = Perfect elastic spring back.",
+            "default": 0.2,
+            "min": 0.0,
+            "max": 1.0,
+            "control": { "slider": true }
+        }
+    }
+}
