@@ -40,6 +40,13 @@ class $modify(ModCreatorLayer, CreatorLayer)
         b2World *m_world = nullptr;
         b2Body *m_groundBody = nullptr;
         b2MouseJoint *m_mouseJoint = nullptr;
+
+        ~Fields() {
+            if (m_world) {
+                delete m_world;
+                m_world = nullptr;
+            }
+        }
     };
 
     bool init()
@@ -109,14 +116,10 @@ class $modify(ModCreatorLayer, CreatorLayer)
     {
         auto toggler = typeinfo_cast<CCMenuItemToggler *>(sender);
         m_fields->m_physicsDraggingEnabled = !toggler->isToggled();
-    }
 
-    void destruct()
-    {
-        if (m_fields->m_world)
+        if (auto menu = typeinfo_cast<CCMenu*>(this->getChildByID("creator-buttons-menu")))
         {
-            delete m_fields->m_world;
-            m_fields->m_world = nullptr;
+            menu->setTouchEnabled(!m_fields->m_physicsDraggingEnabled);
         }
     }
 
@@ -184,7 +187,7 @@ class $modify(ModCreatorLayer, CreatorLayer)
                     {
                         CCPoint pos = btn->getPosition();
 
-                        float hitboxScale = 0.90f;
+                        float hitboxScale = 0.887f;
                         float w = btn->getScaledContentSize().width * hitboxScale;
                         float h = btn->getScaledContentSize().height * hitboxScale;
 
@@ -240,21 +243,6 @@ class $modify(ModCreatorLayer, CreatorLayer)
             bp.node->setPosition(CCPoint{b2Pos.x * PTM_RATIO, b2Pos.y * PTM_RATIO});
             bp.node->setRotation(-1.0f * CC_RADIANS_TO_DEGREES(angle));
         }
-    }
-};
-
-class $modify(CCMenu) {
-    bool ccTouchBegan(CCTouch* touch, CCEvent* event) {
-        if (this->getID() == "creator-buttons-menu") {
-            if (auto creatorLayer = typeinfo_cast<CreatorLayer*>(this->getParent())) {
-                auto customLayer = static_cast<ModCreatorLayer*>(creatorLayer);
-                
-                if (customLayer->m_fields->m_world && customLayer->m_fields->m_physicsDraggingEnabled) {
-                    return false; 
-                }
-            }
-        }
-        return CCMenu::ccTouchBegan(touch, event);
     }
 };
 
