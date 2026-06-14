@@ -8,7 +8,7 @@
     },
     "id": "rcg21.menu-physics",
     "name": "Menu Physics",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "developer": "RCG21",
     "description": "menu buttons obey physics",
     "dependencies": {
