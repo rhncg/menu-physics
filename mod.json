@@ -8,7 +8,7 @@
     },
     "id": "rcg21.menu-physics",
     "name": "Menu Physics",
-    "version": "v1.0.2",
+    "version": "v1.1.0",
     "developer": "RCG21",
     "description": "menu buttons obey physics",
     "dependencies": {
@@ -22,13 +22,19 @@
             "name": "Enable Physics",
             "default": true
         },
+        "remove-ceiling": {
+        "name": "Remove Ceiling",
+        "description": "Allows UI nodes to fly out past the top edge of the screen.",
+        "type": "bool",
+        "default": false
+        },
         "physics-gravity": {
             "type": "float",
             "name": "Gravity Force",
-            "description": "Adjusts vertical pull down. Zero simulates space.",
+            "description": "Adjust the strength of gravity. Negative values pull down, positive values pull up.",
             "default": -30.0,
             "min": -100.0,
-            "max": 0.0,
+            "max": 100.0,
             "control": { "slider": true }
         },
         "physics-friction": {
@@ -43,7 +49,7 @@
         "physics-bounciness": {
             "type": "float",
             "name": "Bounciness",
-            "description": "0 = No bounce, 1 = Perfect elastic spring back.",
+            "description": "0 = No bounce, 1 = Perfectly elastic.",
             "default": 0.2,
             "min": 0.0,
             "max": 1.0,

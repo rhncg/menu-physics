@@ -40,3 +40,7 @@ add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 setup_geode_mod(${PROJECT_NAME})
 
 target_link_libraries(${PROJECT_NAME} box2d)
+
+if (MSVC OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    target_compile_definitions(box2d PRIVATE _ITERATOR_DEBUG_LEVEL=0 _HAS_ITERATOR_DEBUGGING=0)
+endif()
