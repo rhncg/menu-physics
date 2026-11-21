@@ -1,5 +1,5 @@
 # 1.1.1
-- Support for Geode v6
+- Support for Geode v6 (macOS temporarily not supported)
 
 # 1.1.0
 - Added option to enter positive gravity values (reverse gravity)
