@@ -1,14 +1,14 @@
 {
-    "geode": "5.7.1",
+    "geode": "6.0.0-beta.1",
     "gd": {
-        "win": "2.2081",
-        "android": "2.2081",
-        "mac": "2.2081",
-        "ios": "2.2081"
+        "win": "2.2091",
+        "android": "2.2091",
+        "mac": "2.2091",
+        "ios": "2.2091"
     },
     "id": "rcg21.menu-physics",
     "name": "Menu Physics",
-    "version": "v1.1.0",
+    "version": "v1.1.1",
     "developer": "RCG21",
     "description": "menu buttons obey physics",
     "dependencies": {
