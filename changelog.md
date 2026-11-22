@@ -1,3 +1,6 @@
+# 1.1.2
+- macOS is back
+
 # 1.1.1
 - Support for Geode v6 (macOS temporarily not supported)
 
